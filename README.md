@@ -1,2 +1,41 @@
 # Getting-and-Cleaning-Data-Assignment
-Software for manipulating accelerometer and  gyroscopic data from Samsung Phone
+
+## Introduction ##
+The script in this repo is for manipulating data collected from a study using the accelerometer and gyroscope integrated into a Samsung Galaxy S II smartphone.  Thirty subjects were asked to perform six tasks multiple times.  These tasks were walking on level ground, walking up stairs, walking down stairs, sitting.,standing, and laying down.  A possible use for these data is to help develop an app that for an individual identifies and logs
+ these activities, similar to commercial wrist worn activity monitors.  The advantage being that if it could be done on an individual basis, it could be more accurate than one designed with data averaged over a population. 
+
+Further information regarding the protocol can be found here:
+
+[http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones "Link to protocol description.")
+
+The data accessed for the assignment  are available here:[https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "Link to data zip file.")
+
+The zip file obtained from this link contains the following:
+
+1.  Two sub-directories labeled training and test which contain the " raw" accelerometer and gyroscope signals from which features in the main directory are derived.  These data were actually processed  "by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window)" to the data from the phone. Data from these sub-directories were not used in this assignment.
+2. A readme text, where much of this summary is taken.
+3. Two files named X_train.txt and X_test.txt which  each contain a set of 561 "feature" variables derived from the data in the training and test subdirectories respectively.
+4. Two files named Y_train.txt and Y_test.txt which contain the labels associated with the derived feature variables.
+5. A file named feature.txt with a list of all the derived feature variables.
+6. A file named features_info.txt which contains brief descriptions of the various derived features.
+7. A file named activity_labels.txt that links the numbering of the six activities in the Y_XXXX.files to the actual activity performed.
+
+## First Task -Aggregate the Data##
+As can be seen from the above description, looking at individual files it can be difficult to intepert the data since labels, activities and data are scattered among many different files.  Therefore the first part of the effort is to combine multiple files into a single file that is more easily understood. In particular we are to create one file with the following features:
+
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set.
+4. Appropriately labels the data set with descriptive variable names.
+
+## Second Task -Summarize the Data over each Test Subject and Activity ##
+
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
+Averaging the data for each activity and each subject is clear.  What is meant by making it a tidy data set merits some discussion.  In particular one has the choice of making it a wide set or long set depending on what will use the data for. In a long set each feature for each subject would be in a separate row.  Given that there are 86 features X 30 subject X 6 activities. This would create a long file with four columns (subject,activity,feature, and value).  Alternatively one could list all features in their own column for each subject and activity, resulting in 30 subjects x 6 activity rows with all 86 features listed per row.  Given that the data are most likely to be analyzed to see which are useful for distinguishing activities,  we will probably want to examine multiple features simultaneously, and therefore the wide version seems more applicable.
+
+ 
+
+
+
+
