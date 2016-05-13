@@ -1,3 +1,20 @@
+# Code Book for Samsung Acceleration Analysis #
+## Terminology ##
+The following table lists the variable names for all 88 columns of the resulting tidy data set on the Samsung Phone data.  A brief explanation, based on the descriptive name in column three will clarify the meaning of these data.  The first two columns list the subjects, by number (1-30) and the task they were performing while that data were collected.  The task names are self explanatory. 
+
+ The remaining 86 columns are all the features that contained either mean or std (standard deviation) in their original names. They are all derived from the original linear acceleration data measured by the accelerometer or angular acceleration measured by the gyroscope. They are appropriately labeled either Acc or Gyro within their names  Further the data are the result of a time domain statistic or frequency domain statistic with either time or freq as part of their name.  Finally data is either directional, labeled X,Y, or Z, or the magnitude- combining all three vectors geometrically.  It was not explicitly stated in the original documentation, but traditional the meaning of X is across the body , while Y is from front to back, and Z is the vertical axis. However, since the orientation of the phone relative to the subject was not know, these descriptions may not be valid.  So, for example, the variable TimeBodyACCMeanX is the average value of the linear acceleration in the X direction while a subject was performing a particular task. Similarly, the variable FreqBodyGyroMeanFreqY is the average frequency of angular acceleration in the Y direction. 
+
+The authors also derived  "jerk" features from both the accelerometer and gyroscopic data, representing sudden linear or angular accelerations and analyzed these in a similar matter. How these signals were computed is not stated, but given the descriptive nature of the term one would expect either a time derivative or high pass frequency filter to generate such signals. 
+
+Finally the last seven features are all measurements of angles between two features. How they were computed is not described Since they all contain the word gravity as one of features it is likely that they are useful for ascertaining the orientation of the subject and/or phone.
+
+## Units ##
+ The original units of the sampled data were g's (one g is 9.8 meter/second^2 and radians/second^2. The features are all normalized to fall within the range negative one to positive one, and therefore unit-less.
+ 
+ 
+ 
+
+
 | Column | Original Name                        | Descriptive Name                   |
 |--------|--------------------------------------|------------------------------------|
 | 1      | Subject                              | Subject                            |
