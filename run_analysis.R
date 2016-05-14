@@ -66,16 +66,17 @@ run_analysis <- function(){
 # all that remains is the final step to average it over subject and activity
 # which is done in the following line      
       final <- mean_std %>% group_by(subject,activity) %>% summarise_each(funs(mean))
-# I have deviated slighly from the instructions becasue I did not l like
-# the format of text file created by write.table
+      write.table(final,file="tidy.txt",quote=FALSE,row.names=FALSE,sep="    ")
+# I have created a text file on git hub that formats nicer see below:
 # Instead I used the capture.output function to output the print .data.frame to a text file     
 # By  changing the width and line maximum options we can print out the data in 
 # a format that is both tidy and visually easy to look at.
 # note I have limited the signifcant digits to 3 since the accuracy and precision 
-# of commercial devices is not even that accurate.  Further digits are noise.
-# the result appears in file "tidy.txt"
+# of commercial devices is not even that accurate. 
+#Unfortunately when I upload this text file to Coursera it loses the nice
+#appearence it has on github.
       options(width=3000)
       options(max.print=30000)
-      capture.output(print.data.frame(final,row.names=F,digits=3,print.gap=4),file="tidy.txt")
+      capture.output(print.data.frame(final,row.names=F,digits=3,print.gap=4),file="pretty.txt")
 
 }
