@@ -105,3 +105,14 @@ Finally the last seven features are all measurements of angles between two featu
 | 86     | angle(X,gravityMean)                 | angleX,gravityMean                 |
 | 87     | angle(Y,gravityMean)                 | angleY,gravityMean                 |
 | 88     | angle(Z,gravityMean)                 | angleZ,gravityMean                 |
+
+
+The following is how the activities were coded in the original data:
+
+##Activity Code Table##
+1. WALKING
+2. WALKING_UPSTAIRS
+3. WALKING_DOWNSTAIRS
+4. SITTING
+5. STANDING
+6. LAYING
