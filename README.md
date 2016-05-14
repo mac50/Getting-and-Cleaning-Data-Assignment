@@ -12,14 +12,18 @@ The data accessed for the assignment  are available here:[https://d396qusza40orc
 
 The zip file obtained from this link contains the following:
 
-1.  Two sub-directories labeled training and test which contain the " raw" accelerometer and gyroscope signals from which features in the main directory are derived.  These data were actually processed  "by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window)" to the data from the phone. Data from these sub-directories were not used in this assignment.
-2. A readme text, where much of this summary is taken.
-3. Two files named X_train.txt and X_test.txt which  each contain a set of 561 "feature" variables derived from the data in the training and test subdirectories respectively.
-4. Two files named Y_train.txt and Y_test.txt which contain the labels associated with the derived feature variables.
-5. A file named feature.txt with a list of all the derived feature variables.
-6. A file named features_info.txt which contains brief descriptions of the various derived features.
-7. A file named activity_labels.txt that links the numbering of the six activities in the Y_XXXX.files to the actual activity performed.
 
+1. A readme text, where much of this summary is taken.
+2. A file named feature.txt with a list of all the derived feature variables.
+3. A file named features_info.txt which contains brief descriptions of the various derived features.
+4. A file named activity_labels.txt that links the numbering of the six activities in the Y_????.txt files to the actual activity performed. **Note ???? can be either training or test**.
+5. Two sub-directories labeled training and test which contain separate data sets, to be combined in this assignment.  Within each of these directories is the following:
+  6.  A subdirectory called Inertial Signals, which may be thought of as the "raw" data fromw which the feature variable test and training feature variabes are derived  In reality, however the Inertial Signals were actually processed  "by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window)" to the data from the phone. Inertial Signals were not used in this assignment.
+  7.   A file named X_????.txt  which   contains the 561 feature  set variable data that were computed from the Inertial File Data.
+  8.   A file named Y_????.txt which contain the activities associated with the derived feature data point in the X_????.txt file
+  9.   A file named subject_????.txt which contains the ordered subject list  associated with each data point in the x_????.txt file.
+
+  
 ## First Task -Aggregate the Data##
 As can be seen from the above description, looking at individual files it can be difficult to intepert the data since labels, activities and data are scattered among many different files.  Therefore the first part of the effort is to combine multiple files into a single file that is more easily understood. In particular we are to create one file with the following features:
 
@@ -32,7 +36,7 @@ As can be seen from the above description, looking at individual files it can be
 
 From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-Averaging the data for each activity and each subject is clear.  What is meant by making it a tidy data set merits some discussion.  In particular one has the choice of making it a wide set or long set depending on what will use the data for. In a long set each feature for each subject would be in a separate row.  Given that there are 86 features X 30 subject X 6 activities. This would create a long file with four columns (subject,activity,feature, and value).  Alternatively one could list all features in their own column for each subject and activity, resulting in 30 subjects x 6 activity rows with all 86 features listed per row.  Given that the data are most likely to be analyzed to see which are useful for distinguishing activities,  we will probably want to examine multiple features simultaneously, and therefore the wide version seems more applicable.
+Averaging the data for each activity and each subject is clear.  What is meant by making it a tidy data set merits some discussion.  In particular one has the choice of making it a wide set or long set depending on what will use the data for. In a long set each feature for each subject would be in a separate row.  Given that there are 86 features X 30 subject X 6 activities. This would create a long file with four columns (subject,activity,feature, and value).  Alternatively one could list all features in their own column for each subject and activity, resulting in 30 subjects x 6 activity rows with all 86 features listed per row.  Given that the data are most likely to be analyzed to see which are useful for distinguishing activities,  we will probably want to examine multiple features simultaneously, and therefore the wide version seems more applicable.  Finally, because beyond three digits the data is very likely meaningless I have limited the printout to three significant digits and made the output space delimited to improve readability.  By changing the print line at the end of the script, any number of significant digits may be printed.
 
  
 
