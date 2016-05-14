@@ -8,7 +8,7 @@ Further information regarding the protocol can be found here:
 
 [http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones "Link to protocol description.")
 
-The data accessed for the assignment  are available here:[https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "Link to data zip file.")
+The data accessed for the assignment  are available for download at this link: [https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "Link to data zip file.")
 
 The zip file obtained from this link contains the following:
 
@@ -20,7 +20,7 @@ The zip file obtained from this link contains the following:
 5. Two sub-directories labeled training and test which contain separate data sets, to be combined in this assignment.  Within each of these directories is the following:
   6.  A subdirectory called Inertial Signals, which may be thought of as the "raw" data fromw which the feature variable test and training feature variabes are derived  In reality, however the Inertial Signals were actually processed  "by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window)" to the data from the phone. Inertial Signals were not used in this assignment.
   7.   A file named X_????.txt  which   contains the 561 feature  set variable data that were computed from the Inertial File Data.
-  8.   A file named Y_????.txt which contain the activities associated with the derived feature data point in the X_????.txt file
+  8.   A file named Y_????.txt which contain the ordered activities associated with the derived feature data point in the X_????.txt file
   9.   A file named subject_????.txt which contains the ordered subject list  associated with each data point in the x_????.txt file.
 
   
@@ -38,7 +38,11 @@ From the data set in step 4, creates a second, independent tidy data set with th
 
 Averaging the data for each activity and each subject is clear.  What is meant by making it a tidy data set merits some discussion.  In particular one has the choice of making it a wide set or long set depending on what will use the data for. In a long set each feature for each subject would be in a separate row.  Given that there are 86 features X 30 subject X 6 activities. This would create a long file with four columns (subject,activity,feature, and value).  Alternatively one could list all features in their own column for each subject and activity, resulting in 30 subjects x 6 activity rows with all 86 features listed per row.  Given that the data are most likely to be analyzed to see which are useful for distinguishing activities,  we will probably want to examine multiple features simultaneously, and therefore the wide version seems more applicable.    The resulting file will contain averages of averages, and averages of standard deviations.   This is not the same as if we pooled all the data together for one subject and one activity and calculated the mean and standard deviation directly from that.
 
-Finally, because beyond three digits the data is very likely meaningless I have limited the printout to three significant digits and made the output space delimited to improve readability.  By changing the print line at the end of the script, any number of significant digits may be printed.
+Finally, because beyond three digits the data is very likely meaningless I have limited the printout to three significant digits and made the output space delimited to improve readability.  By changing the number of significant digits in the print line at the end of the script, any number of significant digits may be printed.
+
+##Running the Script##
+
+The script is designed assuming that the working directory is where the data file was unzipped.  It will find the subdirectories described above and extract the relevant data perform the two tasks and output the file tidy.txt into the same directory. One needs only to type run_analysis() and it will execute.
 
  
 
