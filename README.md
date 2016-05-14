@@ -38,13 +38,14 @@ From the data set in step 4, creates a second, independent tidy data set with th
 
 Averaging the data for each activity and each subject is clear.  What is meant by making it a tidy data set merits some discussion.  In particular one has the choice of making it a wide set or long set depending on what will use the data for. In a long set each feature for each subject would be in a separate row.  Given that there are 86 features X 30 subject X 6 activities. This would create a long file with four columns (subject,activity,feature, and value).  Alternatively one could list all features in their own column for each subject and activity, resulting in 30 subjects x 6 activity rows with all 86 features listed per row.  Given that the data are most likely to be analyzed to see which are useful for distinguishing activities,  we will probably want to examine multiple features simultaneously, and therefore the wide version seems more applicable.    The resulting file will contain averages of averages, and averages of standard deviations.   This is not the same as if we pooled all the data together for one subject and one activity and calculated the mean and standard deviation directly from that.
 
-I have deviated slighly from the instructions becasue I did not like
-the format of text file created by write.table
-Instead I used the capture.output function to output the print .data.frame to a text file     
+I have actually created two output text files, tidy.txt and pretty.txt
+Tidy.txt, produced by  write.table, did not evenly space columns on each line.
+So  I used the capture.output function to output the print .data.frame to a text file     
 By  changing the width and line maximum options we can print out the data in 
-a format that is both tidy and visually easy to look at.
+a format that is both tidy and visually easy to look at. Unfortunately when I uploaded that to Coursera it all got scrabled.
+So I uploaded the tidy.txt file to Coursera, but you can see both outputs on my github repo.
 
-Finally, because beyond three digits the data is very likely meaningless I have limited the printout to three significant digits and made the output space delimited to improve readability.  By changing the number of significant digits in the print line at the end of the script, any number of significant digits may be printed.
+Finally, because beyond three digits the data is very likely meaningless I have limited the printout in pretty.txt to three significant digits and made the output space delimited to improve readability.  By changing the number of significant digits in the print line at the end of the script, any number of significant digits may be printed.
 
 ##Running the Script##
 
